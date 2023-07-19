@@ -110,6 +110,7 @@ type ListRequest struct {
 	client.BaseRequest
 	Limit  int
 	Offset int
+	Query  string
 }
 
 func (r *ListRequest) Validate() error {
@@ -131,6 +132,9 @@ func (r *ListRequest) RequestParams() map[string]string {
 	}
 	if r.Offset != 0 {
 		params["offset"] = strconv.Itoa(r.Offset)
+	}
+	if r.Query != "" {
+		params["query"] = r.Query
 	}
 	return params
 }

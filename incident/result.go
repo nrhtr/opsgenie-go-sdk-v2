@@ -1,23 +1,26 @@
 package incident
 
 import (
-	"github.com/opsgenie/opsgenie-go-sdk-v2/client"
 	"time"
+
+	"github.com/opsgenie/opsgenie-go-sdk-v2/client"
 )
 
 type Incident struct {
-	Id              string            `json:"id"`
-	ServiceId       string            `json:"serviceId"`
-	TinyId          string            `json:"tinyId"`
-	Message         string            `json:"message"`
-	Status          string            `json:"status"`
-	Tags            []string          `json:"tags"`
-	CreatedAt       time.Time         `json:"createdAt"`
-	UpdatedAt       time.Time         `json:"updatedAt"`
-	Priority        Priority          `json:"priority"`
-	OwnerTeam       string            `json:"ownerTeam"`
-	Responders      []Responder       `json:"responders"`
-	ExtraProperties map[string]string `json:"extraProperties"`
+	Id               string            `json:"id"`
+	ImpactedServices []string          `json:"impactedServices"`
+	TinyId           string            `json:"tinyId"`
+	Message          string            `json:"message"`
+	Status           string            `json:"status"`
+	Tags             []string          `json:"tags"`
+	CreatedAt        time.Time         `json:"createdAt"`
+	UpdatedAt        time.Time         `json:"updatedAt"`
+	Priority         Priority          `json:"priority"`
+	OwnerTeam        string            `json:"ownerTeam"`
+	Responders       []Responder       `json:"responders"`
+	ExtraProperties  map[string]string `json:"extraProperties"`
+	ImpactStartDate  time.Time         `json:"impactStartDate"`
+	ImpactEndDate    time.Time         `json:"impactEndDate"`
 }
 
 type RequestStatusResult struct {
